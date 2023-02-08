@@ -1,10 +1,10 @@
 
 // //PALIDROMA Funzioni
-// function isPalidroma(parolaPalidroma) {
-//     //2.1 Trasformare la parola in un array (.split()), invertirla (reverse()) e concatenare gli elementi (join())
-//     const parolaInversa = parolaPalidroma.split('').reverse().join('');
-//     return parolaInversa
-// }
+function isPalidroma(parolaPalidroma) {
+    //2.1 Trasformare la parola in un array (.split()), invertirla (reverse()) e concatenare gli elementi (join())
+    const parolaInversa = parolaPalidroma.split('').reverse().join('');
+    return parolaInversa
+}
 
 //PARI E DISPARI Funzioni
 function isNumberRandom(numeroPcRandom){
@@ -21,7 +21,6 @@ function isSom(n1,n2){
 }
 
 function isDivisible(numero, divisore){
-	//creiamo una variabile resto
 	const resto = numero % divisore
 
 	if (resto === 0) {
@@ -33,25 +32,23 @@ function isDivisible(numero, divisore){
 
 // // PALIDROMA
 
-// //1. Chiedere all'utente una parola e convertirla in minuscolo
-// const parolaUtente = prompt('inserisci una parola').toLowerCase();
-// console.log(parolaUtente);
+//1. Chiedere all'utente una parola e convertirla in minuscolo
+const parolaUtente = prompt('inserisci una parola').toLowerCase();
+console.log('La parola scelta dall Ultente è', parolaUtente);
 
-// // //2. Creare una funzione per controllare se la parola inserita è palindroma
-// // function isPalidroma(parolaPalidroma) {
-// //     //2.1 Trasformare la parola in un array (.split()), invertirla (reverse()) e concatenare gli elementi (join())
-// //     const parolaInversa = parolaPalidroma.split('').reverse().join('');
-// //     return parolaInversa
-// // }
+// //2. Creare una funzione per controllare se la parola inserita è palindroma
 
-// //3. Comunicare all'utente l'esito del controllo
-// const parolaInvertita = isPalidroma(parolaUtente);
 
-// if (parolaUtente == parolaInvertita){
-//     console.log('La parola è Palidroma');
-// } else{
-//     console.log('La parola non è Palidroma');
-// }
+//3. Comunicare all'utente l'esito del controllo
+const parolaInvertita = isPalidroma(parolaUtente);
+
+if (parolaUtente == parolaInvertita){
+    // console.log('La parola è Palidroma');
+    alert('La parola è Palidroma');
+} else{
+    // console.log('La parola non è Palidroma');
+    alert('La parola non è Palidroma');
+};
 
 
 //PARI E DISPARI
@@ -63,11 +60,6 @@ const numeroUtente =  parseInt(prompt('Scegli un numero da 1 a 5'));
 console.log('Utente x ha scelto ', numeroUtente);
 
 // //2. In una funzione generiamo un numero radom per il computer (da 1 a 5)
-// function isNumberRandom(numeroPcRandom){
-//     numeroPcRandom = Math.floor(Math.random() * (5 - 1 + 1) + 1);
-
-//     return numeroPcRandom
-// }
 
 const numeroRandom = ''
 const numeroPc = isNumberRandom(numeroRandom);
@@ -85,3 +77,21 @@ if (isDivisible(somma, 2)){
 };
 
 //4. Comunichiamo se l'utente ha vinto o ha perso
+
+if (mossaUtente === 'pari') {
+
+	if (isDivisible(somma, 2) === true) {
+        alert('Hai vinto!! :)');
+	} else {
+		alert('Hai perso!! :c');
+	};
+
+} else if (mossaUtente === 'dispari'){
+
+	if (isDivisible(somma, 2) === true) {
+		alert('Hai perso!! :c');
+	} else {
+		alert('Hai vinto!! :)');
+	};
+
+};
