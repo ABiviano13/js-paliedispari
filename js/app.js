@@ -3,31 +3,36 @@
 function isPalidroma(parolaPalidroma) {
     //2.1 Trasformare la parola in un array (.split()), invertirla (reverse()) e concatenare gli elementi (join())
     const parolaInversa = parolaPalidroma.split('').reverse().join('');
-    return parolaInversa
+	return parolaInversa;
 }
 
 //PARI E DISPARI Funzioni
 function isNumberRandom(numeroPcRandom){
     numeroPcRandom = Math.floor(Math.random() * (5 - 1 + 1) + 1);
 
-    return numeroPcRandom
+    return numeroPcRandom;
 }
 
 function isSom(n1,n2){
 
     const som = n1 + n2;
-    return som
+    return som;
 
 }
 
 function isDivisible(numero, divisore){
-	const resto = numero % divisore
+	// !!!! Aggiungere un controllo nelle funzioni perchè non è detto che usiamo la funzione solo nella parte che abbiamo già controllato !!!!
+	if(isNaN(numero || divisore)){
+		console.warn('Il numero è un NaN!! Attenzione!!');
+	}
+
+	const resto = numero % divisore;
 
 	if (resto === 0) {
-		return true
+		return true;
 	} else {
-		return false
-	}
+		return false;
+	};
 }
 
 // // PALIDROMA
@@ -54,14 +59,23 @@ if (parolaUtente == parolaInvertita){
 //PARI E DISPARI
 
 //1. Chiedere all'utente di scegliere 'pari o dispari' e di scegliere anche un numero (da 1 a 5)
-const mossaUtente = prompt('Scegli fra pari e dispari');
-console.log('Utente X ha scelto ', mossaUtente);
-const numeroUtente =  parseInt(prompt('Scegli un numero da 1 a 5'));
-console.log('Utente x ha scelto ', numeroUtente);
+let mossaUtente = '';
+do{
+	mossaUtente = prompt('Scegli fra pari e dispari');
+    console.log('Utente X ha scelto ', mossaUtente); 
+
+} while (mossaUtente !== 'pari' && mossaUtente !== 'dispari');
+
+let numeroUtente = '';
+do{
+	numeroUtente =  parseInt(prompt('Scegli un numero da 1 a 5'));
+    console.log('Utente x ha scelto ', numeroUtente);
+
+} while(isNaN(numeroUtente) || numeroUtente > 5 || numeroUtente < 1);
 
 // //2. In una funzione generiamo un numero radom per il computer (da 1 a 5)
 
-const numeroRandom = ''
+const numeroRandom = '';
 const numeroPc = isNumberRandom(numeroRandom);
 console.log('Il computer ha il numero ', numeroPc);
 
@@ -77,7 +91,6 @@ if (isDivisible(somma, 2)){
 };
 
 //4. Comunichiamo se l'utente ha vinto o ha perso
-
 if (mossaUtente === 'pari') {
 
 	if (isDivisible(somma, 2) === true) {
