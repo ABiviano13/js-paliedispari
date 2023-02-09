@@ -91,20 +91,31 @@ if (isDivisible(somma, 2)){
 };
 
 //4. Comunichiamo se l'utente ha vinto o ha perso
-if (mossaUtente === 'pari') {
 
-	if (isDivisible(somma, 2) === true) {
-        alert('Hai vinto!! :)');
-	} else {
-		alert('Hai perso!! :c');
-	};
+// PRIMO METODO
+// if (mossaUtente === 'pari') {
 
-} else if (mossaUtente === 'dispari'){
+// 	if (isDivisible(somma, 2) === true) {
+//         alert('Hai vinto!! :)');
+// 	} else {
+// 		alert('Hai perso!! :c');
+// 	};
 
-	if (isDivisible(somma, 2) === true) {
-		alert('Hai perso!! :c');
-	} else {
-		alert('Hai vinto!! :)');
-	};
+// } else if (mossaUtente === 'dispari'){
 
-};
+// 	if (isDivisible(somma, 2) === true) {
+// 		alert('Hai perso!! :c');
+// 	} else {
+// 		alert('Hai vinto!! :)');
+// 	};
+
+// };
+
+// SECONDO METODO REFACTORING 
+if(isDivisible(somma, 2) === true && mossaUtente === 'pari'){
+	alert('Hai vinto!! :)');
+} else if(isDivisible(somma, 2) !== true && mossaUtente === 'dispari'){
+	alert('Hai vinto!! :)');
+} else {
+	alert('Hai perso!! :c');
+}
